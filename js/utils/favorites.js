@@ -9,7 +9,7 @@ export function getFavorites() {
     }
 }
 
-// Guardar favoritos
+
 export function saveFavorites(favorites) {
     try {
         localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -18,17 +18,17 @@ export function saveFavorites(favorites) {
     }
 }
 
-// Verificar si un anime ya es favorito
+
 export function isFavorite(animeId) {
     const favorites = getFavorites();
     return favorites.some(fav => fav.mal_id === animeId);
 }
 
-// Agregar a favoritos
+
 export function addFavorite(anime) {
     const favorites = getFavorites();
 
-    // Evitar duplicados
+   s
     const exists = favorites.some(fav => fav.mal_id === anime.mal_id);
     if (exists) return favorites;
 
@@ -43,7 +43,6 @@ export function addFavorite(anime) {
     return updated;
 }
 
-// Eliminar de favoritos
 export function removeFavorite(animeId) {
     const favorites = getFavorites();
     const updated = favorites.filter(fav => fav.mal_id !== animeId);
@@ -51,7 +50,7 @@ export function removeFavorite(animeId) {
     return updated;
 }
 
-// Toggle (agregar o quitar)
+
 export function toggleFavorite(anime) {
     const favorites = getFavorites();
 
@@ -74,7 +73,6 @@ export function toggleFavorite(anime) {
     return updated;
 }
 
-// (Opcional) Limpiar todos los favoritos
 export function clearFavorites() {
     localStorage.removeItem("favorites");
 }
