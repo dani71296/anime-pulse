@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Anime Pulse</title>
+    <meta name="description" content="Discover trending anime, news and characters in one place." />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <!-- JS -->
+    <script type="module" src="./js/main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <h1>Anime<span>Pulse</span></h1>
+        </div>
+
+        <nav class="nav">
+            <button id="homeBtn">Home</button>
+            <button id="newsBtn">News</button>
+            <button id="favoritesBtn">Favorites</button>
+        </nav>
+
+        <!-- Dark mode toggle -->
+        <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    </header>
+
+
+    <!-- MAIN -->
+    <main id="app">
+
+        <!-- SEARCH SECTION -->
+        <section class="search-section">
+            <input type="text" id="searchInput" placeholder="Search anime..." aria-label="Search anime" />
+        </section>
+
+        <!-- FILTERS -->
+        <section class="filters">
+            <select id="genreFilter">
+                <option value="">All Genres</option>
+            </select>
+
+            <select id="sortFilter">
+                <option value="top">Top Rated</option>
+                <option value="popular">Most Popular</option>
+            </select>
+        </section>
+
+        <!-- ANIME LIST -->
+        <section id="animeContainer" class="anime-grid">
+            <!-- JS will inject AnimeCard here -->
+        </section>
+
+        <!-- NEWS SECTION -->
+        <section id="newsContainer" class="news-section">
+            <!-- JS will inject news -->
+        </section>
+
+    </main>
+
+
+    <!-- MODAL (Details View) -->
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <button id="closeModal">✖</button>
+            <div id="modalBody">
+                <!-- JS inserts details -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Anime Pulse</p>
+    </footer>
+
+</body>
+
+</html>

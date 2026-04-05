@@ -1,0 +1,191 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES (THEME) */
+:root {
+    --primary: #e50914;
+    --bg: #0f0f0f;
+    --text: #ffffff;
+    --card: #1a1a1a;
+}
+
+/* LIGHT MODE */
+body.light {
+    --bg: #ffffff;
+    --text: #111;
+    --card: #f3f3f3;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: black;
+}
+
+.logo h1 {
+    color: var(--primary);
+}
+
+.logo span {
+    color: white;
+}
+
+/* NAV */
+.nav button {
+    margin: 0 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+}
+
+/* SEARCH */
+.search-section {
+    padding: 1rem;
+    text-align: center;
+}
+
+.search-section input {
+    width: 80%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: none;
+}
+
+/* FILTERS */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.filters select {
+    padding: 0.5rem;
+}
+
+/* GRID */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* CARD (base para AnimeCard) */
+.card {
+    background: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card h3 {
+    padding: 0.5rem;
+}
+
+/* NEWS */
+.news-section {
+    padding: 1rem;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--card);
+    padding: 1rem;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background: black;
+}
+#closeModal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.7rem;
+    border-radius: 50%;
+    cursor: pointer;
+
+    font-size: 16px;
+}
+.modal-content {
+    position: relative;
+    background: var(--card);
+    padding: 1rem;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 10px;
+
+    max-height: 80vh;
+    /* 🔥 límite de altura */
+    overflow-y: auto;
+    /* 🔥 permite scroll */
+}
+#modalBody img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 10px;
+}
+.favorite-btn {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+}
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
