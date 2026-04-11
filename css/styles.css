@@ -189,3 +189,35 @@ body {
     height: 250px;
     object-fit: cover;
 }
+/*dark mode*/
+body.dark {
+    background-color: #64686b;
+    color: #6e727a;
+}
+
+/* Opcional pero recomendado */
+body.dark .header{
+    background-color: #020617;
+}
+body.dark .footer {
+    background-color: #1e1e1e;
+}
+
+body.dark .anime-card,
+body.dark .news-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+}
+body.dark input {
+    background-color: #1e293b;
+    color: #fff;
+    border: 1px solid #334155;
+}
+body.dark select {
+    background-color: #1e293b;
+    color: #fff;
+    border: 1px solid #334155;
+}
+body.dark .nav button {
+    color: #e5e7eb;
+}
