@@ -32,6 +32,33 @@ let allAnime = [];
 
 
 // ==============================
+// ⏳ LOADING STATE
+// ==============================
+function showLoading() {
+    container.innerHTML = `
+        <div style="text-align:center; padding:20px; color:white;">
+            <p>Loading anime...</p>
+        </div>
+    `;
+}
+function showError(message = "Something went wrong") {
+    container.innerHTML = `
+        <div style="text-align:center; padding:20px; color:red;">
+            <p>${message}</p>
+        </div>
+    `;
+}
+function showNoResults() {
+    container.innerHTML = `
+        <div style="text-align:center; padding:40px; color:white;">
+            <h3>No results found 😢</h3>
+            <p>Try another search</p>
+        </div>
+    `;
+}
+
+
+// ==============================
 // ❌ MODAL CLOSE
 // ==============================
 closeBtn.addEventListener("click", () => {
@@ -44,6 +71,11 @@ closeBtn.addEventListener("click", () => {
 // ==============================
 function renderAnimeList(list) {
     container.innerHTML = "";
+    // 👇 NUEVO
+    if (list.length === 0) {
+        showNoResults();
+        return;
+    }
 
     list.forEach(anime => {
         const cardHTML = AnimeCard(anime);
@@ -180,8 +212,18 @@ async function showNews() {
 
     newsContainer.innerHTML = "<p>Loading...</p>";
 
-    const news = await getAnimeNews();
-    renderNews(news);
+    try {
+        const news = await getAnimeNews();
+        renderNews(news);
+
+    } catch (error) {
+        console.error(error);
+        newsContainer.innerHTML = `
+            <p style="color:red; text-align:center;">
+                Failed to load news.
+            </p>
+        `;
+    }
 }
 
 
@@ -239,10 +281,19 @@ function loadTheme() {
 // 🚀 INIT APP
 // ==============================
 async function init() {
-    allAnime = await getTopAnime();
+    showLoading();
 
-    populateGenres(allAnime); // 👉 llena dropdown de géneros
-    renderAnimeList(allAnime);
+    try {
+        await new Promise(resolve => setTimeout(resolve, 100)); // 👈 prueba para ver mmensaje
+        allAnime = await getTopAnime();
+
+        populateGenres(allAnime);
+        renderAnimeList(allAnime);
+
+    } catch (error) {
+        console.error(error);
+        showError("Failed to load anime. Please try again.");
+    }
 }
 
 // eventos de filtros
