@@ -276,6 +276,7 @@ body.dark .nav button {
 @media (max-width: 480px) {
     .card img {
             height: 180px;
+        }
 
     .anime-grid {
         grid-template-columns: 1fr;
