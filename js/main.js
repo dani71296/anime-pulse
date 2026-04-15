@@ -277,6 +277,17 @@ navNews.addEventListener("click", showNews);
 // ==============================
 // 🌙 DARK MODE
 // ==============================
+// Añade esto exactamente así:
+function loadTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        // Asegúrate de que themeToggle esté definido arriba en tus variables
+        if (themeToggle) {
+            themeToggle.textContent = "☀️";
+        }
+    }
+}
 function toggleTheme() {
     document.body.classList.toggle("dark");
 
