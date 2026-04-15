@@ -194,10 +194,20 @@ function showFavorites() {
 function renderNews(newsList) {
     const newsContainer = document.getElementById("newsContainer");
 
+    // 🔥 VALIDACIÓN CLAVE
+    if (!newsList || newsList.length === 0) {
+        newsContainer.innerHTML = `
+            <p style="text-align:center; color:red;">
+                No news available.
+            </p>
+        `;
+        return;
+    }
+
     newsContainer.innerHTML = newsList.map(news => `
         <div class="news-card">
             <h3>${news.title}</h3>
-            <p>${news.excerpt}</p>
+            <p>${news.excerpt || "No description available"}</p>
             <a href="${news.url}" target="_blank">Leer más</a>
         </div>
     `).join("");
@@ -214,6 +224,17 @@ async function showNews() {
 
     try {
         const news = await getAnimeNews();
+
+        // 🔥 VALIDACIÓN EXTRA
+        if (!news || news.length === 0) {
+            newsContainer.innerHTML = `
+                <p style="text-align:center;">
+                    ⚠️ No news available right now
+                </p>
+            `;
+            return;
+        }
+
         renderNews(news);
 
     } catch (error) {

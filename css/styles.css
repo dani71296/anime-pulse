@@ -221,3 +221,84 @@ body.dark select {
 body.dark .nav button {
     color: #e5e7eb;
 }
+
+
+
+/* ========================= */
+/* CELULAR (<= 768px) */
+/* ========================= */
+@media (max-width: 768px) {
+    .card img {
+            height: 200px;
+        }
+
+    /* HEADER */
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* GRID */
+    .anime-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+    }
+
+    /* CARDS */
+    .card img {
+        height: 200px;
+    }
+
+    /* SEARCH */
+    .search-section input {
+        width: 95%;
+    }
+
+    /* MODAL */
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+}
+
+
+/* ========================= */
+/* CELULAR PEQUEÑO (<= 480px) */
+/* ========================= */
+@media (max-width: 480px) {
+    .card img {
+            height: 180px;
+
+    .anime-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
+
+    .nav button {
+        font-size: 14px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filters select {
+        width: 90%;
+    }
+}
