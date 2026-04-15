@@ -290,10 +290,11 @@ themeToggle.addEventListener("click", toggleTheme);
 
 function loadTheme() {
     const savedTheme = localStorage.getItem("theme");
+    const themeToggle = document.getElementById("themeToggle");
 
     if (savedTheme === "dark") {
         document.body.classList.add("dark");
-        themeToggle.textContent = "☀️";
+        if (themeToggle) themeToggle.textContent = "☀️";
     }
 }
 
