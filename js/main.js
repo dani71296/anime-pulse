@@ -277,7 +277,7 @@ navNews.addEventListener("click", showNews);
 // ==============================
 // 🌙 DARK MODE
 // ==============================
-// Añade esto exactamente así:
+
 function loadTheme() {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
